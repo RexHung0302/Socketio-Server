@@ -1,6 +1,6 @@
 ## Socketio-Server
 
-![Socket.io Logo](/Socketio-Server.png)
+![Socket.io Logo](/socket_io_logo.png)
 
 這是一個基於 **Node.js Express** 建立的後端專案，專門用來提供前端專案聊天室的功能，使用 [Socket.io](https://socket.io/) 來提供。
 
