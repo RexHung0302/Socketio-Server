@@ -14,6 +14,8 @@
 
 4. **Socket.io** 使用 **module.export** 方式讓 **API** 那邊可以直接進行推播，可帶參數 **msg** 在 **Body**，路由為 `/chat` 的 **post**。
 
+5. 可直接清除所有聊天室，透過 `/chat/delete-all-rooms` 的 **delete**。
+
 ---
 
 ## 使用方法

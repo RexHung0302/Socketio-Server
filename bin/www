@@ -83,7 +83,7 @@ io.on("connection", (socket) => {
   });
 
   // 登出
-  socket.on("disconnectLobby", ({ id, name }) => {
+  socket.on("disconnectLobby", ({ id }) => {
     users = users.filter((user) => user.id !== id.toString());
 
     socket.leave(id);
@@ -279,4 +279,11 @@ function onListening() {
 function getSocketIo() {
   return io;
 }
+
+function cleanChatRooms() {
+  chatRooms = [];
+}
+
 module.exports.getSocketIo = getSocketIo;
+module.exports.cleanChatRooms = cleanChatRooms;
+module.exports.updateSocketInfo = updateInfo;

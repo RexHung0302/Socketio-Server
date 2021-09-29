@@ -23,4 +23,14 @@ router.post("/", function (req, res, next) {
   });
 });
 
+router.delete("/delete-all-rooms", function (req, res, next) {
+  socket.cleanChatRooms();
+  socket.updateSocketInfo();
+
+  res.json({
+    success: true,
+    message: "Success",
+  });
+});
+
 module.exports = router;
