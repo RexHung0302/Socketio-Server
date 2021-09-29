@@ -12,7 +12,7 @@
 
 3. 註解有 **Namespace** 的功能，需要的使用者可自行開啟 - [Socket.io Namespace](https://socket.io/docs/v4/namespaces/#main-namespace)
 
-4. **Socket.io** 使用 **module.export** 方式讓 **API** 那邊可以直接進行推播，可帶參數 **msg** 在 **Body**。
+4. **Socket.io** 使用 **module.export** 方式讓 **API** 那邊可以直接進行推播，可帶參數 **msg** 在 **Body**，路由為 `/chat` 的 **post**。
 
 ---
 
