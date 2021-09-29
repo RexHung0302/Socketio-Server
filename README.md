@@ -39,3 +39,7 @@
 ## 相關介紹文章
 
 [【筆記】Socket，Websocket，Socket.io 的差異](https://leesonhsu.blogspot.com/2018/07/socketwebsocketsocketio.html)
+
+[socket.io namespaces and rooms (译)](https://segmentfault.com/a/1190000021255876)
+
+[你知道 socket.io 中 connect 事件和 connection 事件的区别吗?](https://segmentfault.com/a/1190000012915401)
