@@ -42,7 +42,7 @@
 
 ## 相關介紹文章
 
-[【筆記】Socket，Websocket，Socket.io 的差異](https://leesonhsu.blogspot.com/2018/07/socketwebsocketsocketio.html)
+[【筆記】Socket，Websocket，Socket.io 的差異 ](https://leesonhsu.blogspot.com/2018/07/socketwebsocketsocketio.html)
 
 [socket.io namespaces and rooms (译)](https://segmentfault.com/a/1190000021255876)
 

@@ -36,11 +36,13 @@ let chatRooms = [
     id: uuidv4(),
     name: "新手村一",
     desc: "菜雞才能來喔！",
+    userNumber: 0,
   },
   {
     id: uuidv4(),
     name: "無差別",
     desc: "不管你是什麼雞都可以來～",
+    userNumber: 0,
   },
 ];
 
@@ -102,6 +104,8 @@ io.on("connection", (socket) => {
     const selectRoom = chatRooms.find((room) => room.id === roomId);
     if (!selectRoom) return;
 
+    selectRoom.userNumber += 1;
+
     socket.join(selectRoom.id);
 
     // 傳給特定使用者的訊息
@@ -125,12 +129,18 @@ io.on("connection", (socket) => {
       },
       create_at: moment().format("YYYY-MM-DD HH:mm:ss"),
     });
+
+    // 推播最新聊天室資訊至使用者端
+    updateInfo();
+    updateRoomInfo(selectRoom.id);
   });
 
   // 使用者離開房間
   socket.on("disconnectChatRoom", ({ id, name, roomId }) => {
     const selectRoom = chatRooms.find((room) => room.id === roomId);
     if (!selectRoom) return;
+
+    selectRoom.userNumber -= 1;
 
     socket.leave(selectRoom.id);
 
@@ -143,6 +153,10 @@ io.on("connection", (socket) => {
       },
       create_at: moment().format("YYYY-MM-DD HH:mm:ss"),
     });
+
+    // 推播最新聊天室資訊至使用者端
+    updateInfo();
+    updateRoomInfo(selectRoom.id);
   });
 
   // 使用者發訊息
@@ -182,6 +196,7 @@ io.on("connection", (socket) => {
         id: uuidv4(),
         name,
         desc: desc ? desc : "這間房間尚無敘述",
+        userNumber: 0,
       });
 
       io.to(userId).emit("personalAnnouncement", {
@@ -209,6 +224,14 @@ const updateInfo = () => {
     chatRooms,
     userNumber: users.length,
   });
+};
+
+const updateRoomInfo = (roomId) => {
+  const selectRoom = chatRooms.find((room) => room.id === roomId);
+  if (!selectRoom) return;
+
+  // 推播最新該聊天室人數
+  io.to(selectRoom.id).emit("updateRoomInfo", selectRoom);
 };
 
 /**
