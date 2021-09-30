@@ -16,6 +16,8 @@
 
 5. 可直接清除所有聊天室，透過 `/chat/delete-all-rooms` 的 **delete**。
 
+> **介紹文章可參考 [[NodeJS Become A Full Stack Developer] — 透過 Socket.io 來製作即時聊天室吧](https://rexhung0302.github.io/2021/10/01/20211001/#more)**
+
 ---
 
 ## 使用方法
